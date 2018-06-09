@@ -170,7 +170,6 @@ bool C3DModel_X::readXFile(const char * const filename)
 	char *nextToken = NULL;
 	char *actToken = NULL;
 
-	
 	const char *delimiterToken = ";";
 
 	int currentToken = 0;
