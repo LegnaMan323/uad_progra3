@@ -247,7 +247,7 @@ void CGameWindow::mainLoop(void *appPointer)
 	PCFreq = double(li.QuadPart) / 1000.0;
 	QueryPerformanceCounter(&li);
 	CounterStart = li.QuadPart;
-	last_time = double(li.QuadPart - CounterStart) / PCFreq;
+	last_time = double(li.QuadPart - CounterStart) / PCFreq; //
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(m_Window))

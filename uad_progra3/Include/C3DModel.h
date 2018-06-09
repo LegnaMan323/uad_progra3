@@ -39,7 +39,7 @@ public:
 	virtual ~C3DModel();
 	
 	static C3DModel* load(const char * const filename);
-	bool isInitialized() const { return m_Initialized; }
+	bool isInitialized() const { return m_Initialized; } // 
 	void setInitialized(bool i) { m_Initialized = i; }
 
 	unsigned int *getGraphicsMemoryObjectId() { return &m_graphicsMemoryObjectId; }

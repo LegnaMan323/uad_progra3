@@ -12,6 +12,7 @@ using namespace std;
 #include "../Include/C3DModel_Obj.h"
 #include "../Include/C3DModel_STL.h"
 #include "../Include/C3DModel_3DS.h"
+#include "../Include/C3DModel_X.h"
 
 /* */
 C3DModel::C3DModel()
@@ -127,7 +128,19 @@ C3DModel* C3DModel::load(const char * const filename)
 		cout << "File extension: " << fileExtension << endl;
 
 		// Now check the file type and see if it's a supported type
-		if (!fileExtension.compare("obj"))
+		if (!fileExtension.compare("stl"))
+		{
+			cout << L"Loading STL model..." << endl;
+			newModel = new C3DModel_STL();
+			newModel->loadFromFile(filename);
+		}
+		else if (!fileExtension.compare("x"))
+		{
+			cout << "Loading X model..." << endl;
+			newModel = new C3DModel_X();
+			newModel->loadFromFile(filename);
+		}
+		else if (!fileExtension.compare("obj"))
 		{
 			cout << "Loading OBJ model..." << endl;
 			newModel = new C3DModel_Obj();
@@ -137,12 +150,6 @@ C3DModel* C3DModel::load(const char * const filename)
 		{
 			cout << "Loading 3DS model..." << endl;
 			newModel = new C3DModel_3DS();
-			newModel->loadFromFile(filename);
-		}
-		else if (!fileExtension.compare("stl"))
-		{
-			cout << "Loading STL model..." << endl;
-			newModel = new C3DModel_STL();
 			newModel->loadFromFile(filename);
 		}
 		else if (!fileExtension.compare("fbx"))
