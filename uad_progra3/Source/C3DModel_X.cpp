@@ -288,7 +288,35 @@ bool C3DModel_X::readXFile(const char * const filename)
 				}
 				readingFaceindx = false;
 			}
+				readingNormal = false;
+		}
+		if(Token2 == "MeshTextureCoords")
+		{
+			readingUV = true;
+			getline(infile, lineBuffer, '\n');  lineNumber++;
+			istringstream strTK(lineBuffer);
+			getline(strTK, Token2, ';');
+			m_numUVCoords = stoi(Token2);
+			// Allocate memory for the arrays
+			// C3DModel variables
+			m_uvCoordsRaw = new float[m_numUVCoords * 2];
+			memset(m_uvCoordsRaw, 0, sizeof(float) * m_numUVCoords * 2);
 
+			while (m_currentUV != m_numUVCoords)
+			{
+				getline(infile, lineBuffer, '\n'); lineNumber++;
+				istringstream strTK(lineBuffer);
+				getline(strTK, Token2, ';');
+				m_uvCoordsRaw[(m_currentUV * 2)] = stof(Token2);
+				getline(strTK, Token2, ';');
+				m_uvCoordsRaw[(m_currentUV * 2)+1] = stof(Token2);
+			
+				m_currentUV++;
+			}
+			m_UVindices = new unsigned short[m_numFaces * 3];
+			memset(m_UVindices, 0, sizeof(unsigned short) * m_numFaces * 3);
+			// Zero-out indices arrays
+	
 		}
 
 
