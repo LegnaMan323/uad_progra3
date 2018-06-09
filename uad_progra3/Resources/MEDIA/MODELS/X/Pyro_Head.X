@@ -5315,7 +5315,7 @@ MeshMaterialList {
    { _20_-_Default }
   }
 
-  MeshTextureCoords c1 {
+MeshTextureCoords c1 {
    996;
    0.121090;1.751356;,
    0.124333;1.744644;,
