@@ -745,7 +745,6 @@ bool COpenGLRenderer::renderObject(
 		&& vertexArrayObjectId != NULL 
 		&& *vertexArrayObjectId > 0
 		&& textureObjectId != NULL 
-		&& *textureObjectId > 0
 		&& numFaces > 0
 		&& objectColor != NULL
 		&& !m_OpenGLError)

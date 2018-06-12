@@ -161,21 +161,9 @@ bool C3DModel_X::readXFile(const char * const filename)
 	bool readingNormal = false;
 	bool readingUV = false;
 	bool readingFaceindx = false;
-	bool readingTexture = false;
-	bool readingnumVertex = false;
-	bool readingnumNormal = false;
-	bool readingnumFace = false;
-	bool unrecognizedLine = false;
-	int vertexCount = 0;
-	char *nextToken = NULL;
-	char *actToken = NULL;
+	bool readingTexture = false; //
+	bool unrecognizedLine = false; //
 
-	const char *delimiterToken = ";";
-
-	int currentToken = 0;
-	int numTokens = 0;
-
-	std::vector<std::string> tokens;
 
 	infile.open(filename);
 	while (getline(infile, lineBuffer, '\n'))
@@ -261,15 +249,15 @@ bool C3DModel_X::readXFile(const char * const filename)
 				m_currentNormal++;
 			}
 			readingFaceindx = true;
-			if (readingFaceindx)
+			if (readingFaceindx)//   
 			{
 				getline(infile, lineBuffer, '\n'); lineNumber++;
 				istringstream strTK(lineBuffer);
 				getline(strTK, Token2, ';');
 
-				m_numFaces = stoi(Token2);
-				m_normalIndices = new unsigned short[m_numFaces * 3];
-				memset(m_normalIndices, 0, sizeof(unsigned short) * m_numFaces * 3);
+				m_numFaces = stoi(Token2); //
+				m_normalIndices = new unsigned short[m_numFaces * 3]; //
+				memset(m_normalIndices, 0, sizeof(unsigned short) * m_numFaces * 3); // necesary?
 				m_currentFace = 0;
 				while (m_currentFace != m_numFaces)
 				{
@@ -312,20 +300,16 @@ bool C3DModel_X::readXFile(const char * const filename)
 			
 				m_currentUV++;
 			}
-			m_UVindices = new unsigned short[m_numFaces * 3];
-			memset(m_UVindices, 0, sizeof(unsigned short) * m_numFaces * 3);
-			// Zero-out indices arrays
-	
+			//m_UVindices = new unsigned short[m_numFaces * 3];
+			//memset(m_UVindices, 0, sizeof(unsigned short) * m_numFaces * 3);
+
 		}
 
 
 	lineNumber++;
 		}
 	
-		if (actToken == NULL)
-		{
-			parsed = true;
-		}
+	
 
 
 	infile.close();

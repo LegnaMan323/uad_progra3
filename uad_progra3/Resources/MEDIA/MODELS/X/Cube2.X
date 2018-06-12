@@ -1,18 +1,11 @@
 xof 0303txt 0032
 
-template KeyValuePair {
- <26e6b1c3-3d4d-4a1d-a437-b33668ffa1c2>
- STRING key;
- STRING value;
-}
-
 Material RedMaterial {
 1.000000;1.000000;1.000000;1.000000;;    // R = 1.0, G = 0.0, B = 0.0
 0.000000;
 0.000000;0.000000;0.000000;;
 0.000000;0.000000;0.000000;;
 }
-
 
 // Define a mesh with 8 vertices and 12 faces (triangles). Use 
 // optional data objects in the mesh to specify materials, normals,
