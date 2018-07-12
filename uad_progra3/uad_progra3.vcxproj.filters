@@ -93,6 +93,9 @@
     <ClInclude Include="Include\C3DModel_X.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\CHexgridCell.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -153,6 +156,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\C3DModel_X.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CHexgridCell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

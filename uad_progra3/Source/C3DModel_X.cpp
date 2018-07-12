@@ -4,8 +4,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "..\Include\CHexgridCell.h"
 
-#define MAXVERTEX 65535;
 
 using namespace std;
 
@@ -81,6 +81,7 @@ bool C3DModel_X::loadFromFile(const char * const filename)
 	cout << "Normals: " << m_numNormals << endl;
 	cout << "UVCoords: " << m_numUVCoords << endl;
 	cout << "Faces: " << m_numFaces << endl;
+
 
 	if (readFileOk)
 	{

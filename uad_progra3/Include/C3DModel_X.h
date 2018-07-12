@@ -4,7 +4,6 @@
 #define C3DMODEL_X_H
 
 #include "C3DModel.h"
-#include <string>
 using namespace std;
 
 class C3DModel_X : public C3DModel
