@@ -96,6 +96,18 @@
     <ClInclude Include="Include\CHexgridCell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\CAppGrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CHexGrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CWorld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\XLoaderDLL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -160,6 +172,15 @@
     </ClCompile>
     <ClCompile Include="Source\CHexgridCell.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\CAppGrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CHexGrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\XLoaderDLL.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
