@@ -1,7 +1,7 @@
 #include "..\Include\CHexgridCell.h"
 
 
-CHexgridCell::CHexgridCell(float x, float z, const float sSize) : graphicMemoryObjectID(nullptr)
+CHexgridCell::CHexgridCell(float x, float z, const float sSize) //: graphicMemoryObjectID(nullptr)
 {
 	m_center.setValues(x,0,z);
 
@@ -24,10 +24,11 @@ CVector3 CHexgridCell::getCenter()
 	return this->m_center;
 }
 
+/*
 unsigned int * CHexgridCell::getGraphicMemoryObjectId()
 {
 	return graphicMemoryObjectID;
-}
+}*/
 
 void CHexgridCell::getVertexes(float * pVertex)
 {
