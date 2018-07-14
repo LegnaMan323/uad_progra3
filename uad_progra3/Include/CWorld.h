@@ -9,6 +9,6 @@ public:
 	bool initialize(COpenGLRenderer * renderer);
 	void render();
 private:
-	CHexGrid * Grid;
-	COpenGLRenderer* renderer;
+	CHexGrid * m_pHexGrid;
+	COpenGLRenderer* m_renderer;
 };

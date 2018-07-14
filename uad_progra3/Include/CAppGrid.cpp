@@ -47,15 +47,15 @@ void CAppGrid::run()
 	if (canRun())
 	{
 		// Create the Window 
-	/*	if (getGameWindow()->create(CAPPHEXGRID_WINDOW_TITLE))
+	if (getGameWindow()->create(CAPPHEXGRID_WINDOW_TITLE))
 		{
 			// Set initial clear screen color
 			getOpenGLRenderer()->setClearScreenColor(0.15f, 0.75f, 0.75f);
 			// Initialize window width/height in the renderer
 			getOpenGLRenderer()->setWindowWidth(getGameWindow()->getWidth());
 			getOpenGLRenderer()->setWindowHeight(getGameWindow()->getHeight());
-			// Initialize a test cube
-			getOpenGLRenderer()->initializeTestObjects();
+		
+			//getOpenGLRenderer()->initializeTestObjects();
 			// Create our menu (add all menu items)
 
 			m_pWorld->initialize(getOpenGLRenderer());
@@ -67,7 +67,7 @@ void CAppGrid::run()
 			// Enter main loop
 			cout << "Entering Main loop" << endl;
 			getGameWindow()->mainLoop(this);
-		}*/
+		}
 	}
 }
 
@@ -86,7 +86,7 @@ void CAppGrid::render()
 		float color[3] = { 1.0f, 1.0f, 1.0f };
 
 		// render del world
-		//m_pWorld->render();
+		m_pWorld->render();
 	
 	}
 }
