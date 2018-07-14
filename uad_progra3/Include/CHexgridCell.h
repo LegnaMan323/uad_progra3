@@ -3,7 +3,8 @@
 #ifndef CHEXGRIDCELL
 #define CHEXGRIDCELL
 
-#include "../stdafx.h"
+#define GRAD_RAD 0.01745329251
+
 #include "../Include/CVector3.h"
 #include <iostream>
 
@@ -24,10 +25,11 @@ public:
 
 	const float sideSize = 1;
 	const float hexTHight = (sqrt(3)*sideSize / 2);
-	const float angrad = 0.017453;
+	const float angrad = GRAD_RAD;
 //	const float iDiameter = sideSize * 2; //
 
 	CHexgridCell(float x, float y, float sSize);
+	CHexgridCell * HexCell;
 	~CHexgridCell();
 
 	CVector3 getCenter();

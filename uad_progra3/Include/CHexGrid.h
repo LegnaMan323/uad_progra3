@@ -5,11 +5,13 @@
 
 #include <iostream>
 #include <vector>
-#include "../stdafx.h"
 #include "../Include/CVector3.h"
 #include "COpenGLRenderer.h"
+#include "CWideStringHelper.h"
 #include "Globals.h"
+#include "CHexgridCell.h"
 using namespace std;
+
 
 
 class CHexGrid
