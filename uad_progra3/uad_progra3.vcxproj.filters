@@ -170,13 +170,13 @@
     <ClCompile Include="Source\CHexgridCell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Include\CAppGrid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CHexGrid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CWorld.cpp">
+    <ClCompile Include="Source\CAppGrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

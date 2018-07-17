@@ -4,10 +4,10 @@
 #define CAPPGRID_H
 
 
+#include "CWorld.h"
 #include "Globals.h"
 #include "CApp.h"
 #include "CVector3.h"
-#include "CWorld.h"
 
 // Class that inherits from Base class CApp
 // Base class CApp has members for: CGameWindow, CGameMenu, and COpenGLRenderer, which we can access through the public/protected methods
@@ -34,7 +34,7 @@ public:
 	// Method to initialize any objects for this class
 	void initialize();
 
-	// Method to update any objecs based on time elapsed since last frame
+
 	void update(double deltaTime);
 
 	// Method to run the app
