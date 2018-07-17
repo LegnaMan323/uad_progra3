@@ -10,7 +10,7 @@
 #include "Globals.h"
 #include "CHexgridCell.h"
 #include <string>
-#define HEXGRIDSIZE 2
+#define HEXGRIDSIZE 20
 using namespace std;
 
 

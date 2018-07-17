@@ -54,22 +54,23 @@ void CHexGrid::createHexGrid()
 	{
 		for (int j = 0; j < HEXGRIDSIZE; j++)
 		{
-			if (i == 0)
-			{
-				i = 1;
-			}
+
 			cout << "i" <<i << endl;
 			cout << "j" << j << endl;
 
-			nCenterX = i + hexWidth - sideSize / 2;
+			nCenterX = j * (hexWidth * 3/4);
 			if (j % 2 == 0)
 			{
-				nCenterY = i * hexHight;
+				nCenterY = i * hexHight ;
 			}
-			nCenterY = i * hexHight + hexHight/2;
+			else
+			{
+				nCenterY = i * hexHight + hexHight / 2;
+			}
 
 			m_HexGridLayout[i][j] = new CHexgridCell(nCenterX,nCenterY,sideSize);
-			
+//	m_HexGridLayout[i][j] = new CHexgridCell(nCenterY, nCenterX, sideSize);
+
 
 			for (int k = 0; k < 6; k++)
 			{
