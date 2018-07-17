@@ -10,13 +10,14 @@ CHexgridCell::CHexgridCell(float x, float z, const float sSize) //: graphicMemor
 		m_vertex[i].setValues(m_center.X + sSize * cos(angrad*(60*i)), 0, m_center.Y + sSize * sin(angrad*(60 * i)));
 		cout << m_vertex[i].X << " " << m_vertex[i].Y << endl;
 	}
-
 }
 
 CHexgridCell::~CHexgridCell()
 {
 
 }
+
+
 
 
 CVector3 CHexgridCell::getCenter()

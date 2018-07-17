@@ -25,12 +25,21 @@ private:
 	const float sideSize = 1;
 	const float hexHight = (sqrt(3)*sideSize);
 	const float hexWidth = (2 * sideSize);
-
+	//The horizontal distance between adjacent hexagon centers is w * 3 / 4. The vertical distance between adjacent hexagon centers is h.
+	const float adjHorDist = hexWidth * (3 / 4);
+	const float adjVerDist = hexHight; // delete this bruh
 	CHexgridCell *m_HexGridLayout[HEXGRIDSIZE][HEXGRIDSIZE];
 
 	unsigned int m_gridShaderProgramID;
-	unsigned int m_vertexArrayObjectID();
+	unsigned int m_vertexArrayObjectID;
 
+	unsigned short *m_vertexIndices;                                                                
+                    
+	float *m_verticesRaw;                                         
+
+	int m_numTotalVertices = (HEXGRIDSIZE*HEXGRIDSIZE)*5;
+
+	void reset();
 
 
 public:
@@ -39,7 +48,7 @@ public:
 	CHexGrid();
 	~CHexGrid();
 
-	void createHexGrid();
+	void createHexGridorso();
 
 	unsigned int* getShaderProgramId();
 	unsigned int* getVertexArrayObjectID();

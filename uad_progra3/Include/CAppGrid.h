@@ -15,7 +15,7 @@ class CAppGrid : public CApp
 {
 private:
 
-	CWorld * m_pWorld;
+	CWorld * m_World;
 
 protected:
 	// Method to initialize the menu

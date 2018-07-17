@@ -4,6 +4,7 @@
 #define CHEXGRIDCELL
 
 #define GRAD_RAD 0.01745329251
+#define TEST_PIE arctan(1)*4
 
 #include "../Include/CVector3.h"
 #include <iostream>

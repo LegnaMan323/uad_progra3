@@ -58,7 +58,7 @@ void CAppGrid::run()
 			//getOpenGLRenderer()->initializeTestObjects();
 			// Create our menu (add all menu items)
 
-			m_pWorld->initialize(getOpenGLRenderer());
+			m_World->initialize(getOpenGLRenderer());
 			if (!initializeMenu())
 			{
 				return;
@@ -83,10 +83,10 @@ void CAppGrid::render()
 	else // Otherwise, render active object if loaded (or test cube if no object is loaded)
 	{
 		// White 
-		float color[3] = { 1.0f, 1.0f, 1.0f };
+		float color[3] = { 105f, 105f, 105f };
 
 		// render del world
-		m_pWorld->render();
+		m_World->render();
 	
 	}
 }
