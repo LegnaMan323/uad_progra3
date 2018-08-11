@@ -9,7 +9,7 @@
 
 #include "MathHelper.h"
 #include "COpenGLShaderProgram.h"
-
+#include <string>
 #include <map>
 #include <vector>
 using namespace std;

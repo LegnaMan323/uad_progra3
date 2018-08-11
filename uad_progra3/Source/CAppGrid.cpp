@@ -86,8 +86,10 @@ void CAppGrid::render()
 		float color[3] = { 105.0f, 105.0f, 105.0f };
 
 		// render del world
-		m_World->render();
-
+		if (m_World)
+		{
+			m_World->render(getCamara()->getPosition());
+		}
 	}
 }
 

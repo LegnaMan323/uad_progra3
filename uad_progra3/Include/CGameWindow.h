@@ -29,6 +29,8 @@ private:
 	double       m_CursorPosX;
 	double       m_CursorPosY;
 
+	static CVector3 lastMousePos;
+	static CVector3 cursorMovement;
 	                                       // Generic variables for F1..F12 keys, CApp derived class decides what to do for F2..F11
 	static bool requestF1;                 // F1 always toggles the menu on/off
 	static bool requestF2;                 // 
@@ -43,6 +45,7 @@ private:
 	static bool requestF11;                //
 	static bool requestF12;                // F12 always exits the application
 
+	static bool requestOnMouseMove;
 	                                       // Specific keys for the actions of the menu
 	static bool requestExecuteAction;      // Enter
 	static bool requestSelectNextMenuItem; // Select next menu item
@@ -70,6 +73,8 @@ private:
 	static void keyboardCallback(GLFWwindow * window, int key, int scancode, int action, int mods);
 	// This callback will be called by GLFW when the mouse is moved
 	static void cursorPositionCallback(GLFWwindow* window, double xpos, double ypos);
+
+	static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
 
 	// Process user input (keyboard, mouse)
 	void processInput(void *appPointer);

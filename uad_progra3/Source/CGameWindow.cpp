@@ -23,6 +23,7 @@ bool CGameWindow::requestF9                 = false;
 bool CGameWindow::requestF10                = false;
 bool CGameWindow::requestF11                = false;
 bool CGameWindow::requestF12                = false;
+bool CGameWindow::requestOnMouseMove        = false;
 
 bool CGameWindow::requestExecuteAction      = false;
 bool CGameWindow::requestSelectNextMenuItem = false;
@@ -37,7 +38,8 @@ int  CGameWindow::newWidth                  = 0;
 int  CGameWindow::newHeight                 = 0;
 double CGameWindow::stCursorPosX            = 0.0;
 double CGameWindow::stCursorPosY            = 0.0;
-
+CVector3 CGameWindow::lastMousePos = { 0,0,0 };
+CVector3 CGameWindow::cursorMovement = { 0,0,0 };
 /* Default constructor
 */
 CGameWindow::CGameWindow(COpenGLRenderer * renderer) :
@@ -180,6 +182,9 @@ bool CGameWindow::create(const char *windowTitle)
 	// Get the desktop resolution.
 	const GLFWvidmode *videoMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	int windowPosXOffset = 15;
+
+	glfwSetMouseButtonCallback(m_Window, mouseButtonCallback);
+
 
 	// Set position of the GLFW window
 	if (videoMode)
@@ -469,12 +474,32 @@ void CGameWindow::keyboardCallback(GLFWwindow * window, int key, int scancode, i
 	}
 }
 
+
+void CGameWindow::mouseButtonCallback(GLFWwindow * window, int button, int action, int mods)
+{
+	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+		std::cout << lastMousePos.getX() << " ";
+		std::cout << lastMousePos.getY() << " ";
+		std::cout << lastMousePos.getY() << " ";
+		std::cout << std::endl;
+	}
+}
 /*
 */
 void CGameWindow::cursorPositionCallback(GLFWwindow* window, double xpos, double ypos)
 {
 	stCursorPosX = xpos;
 	stCursorPosY = ypos;
+	if (xpos != 0 && ypos != 0)
+	{
+		CGameWindow::requestOnMouseMove = true;
+
+		auto last = CGameWindow::lastMousePos;
+		CVector3 nPos(xpos, ypos, 0);
+		CGameWindow::cursorMovement = nPos - last;
+		CGameWindow::lastMousePos = nPos;
+	}
+	else CGameWindow::requestOnMouseMove = false;
 }
 
 /*
@@ -613,6 +638,11 @@ void CGameWindow::processInput(void *appPointer)
 			if (CGameWindow::requestArrowRight)
 			{
 				((CApp *)appPointer)->onArrowRight(CGameWindow::keyMods);
+			}
+			if (CGameWindow::requestOnMouseMove)
+			{
+				((CApp *)appPointer)->onMouseMove(CGameWindow::cursorMovement.getX(), CGameWindow::cursorMovement.getY());
+				requestOnMouseMove = false;
 			}
 		}
 	}

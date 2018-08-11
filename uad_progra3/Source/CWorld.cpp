@@ -17,7 +17,7 @@ bool CWorld::initialize(COpenGLRenderer* renderer)
 
 }
 
-void CWorld::render()
+void CWorld::render(CVector3 CamPosition)
 {
 	float HexColor[3] = { 1.0f, 1.0f, 1.0f }; // Color
 	MathHelper::Matrix4 modelMatrix = MathHelper::ModelMatrix((float)0, CVector3(-8, -8, -17));

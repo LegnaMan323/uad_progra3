@@ -7,7 +7,7 @@ public:
 	CWorld();
 	~CWorld();
 	bool initialize(COpenGLRenderer * renderer);
-	void render();
+	void render(CVector3 CamPosition);
 private:
 	CHexGrid * m_HexGrid;
 	COpenGLRenderer* m_renderer;

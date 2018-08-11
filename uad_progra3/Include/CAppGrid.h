@@ -8,6 +8,10 @@
 #include "Globals.h"
 #include "CApp.h"
 #include "CVector3.h"
+#include "windows.h"
+#include "../Include/CCamara.h"
+
+#define CAM_ROTATION_SPEED 0.01
 
 // Class that inherits from Base class CApp
 // Base class CApp has members for: CGameWindow, CGameMenu, and COpenGLRenderer, which we can access through the public/protected methods
@@ -50,6 +54,8 @@ public:
 	// -------------------------------------
 
 	void onMouseMove(float deltaX, float deltaY);
+
+	void onF3(int mods);
 
 };
 
