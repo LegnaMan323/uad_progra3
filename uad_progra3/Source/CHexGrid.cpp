@@ -54,38 +54,61 @@ void CHexGrid::createHexGrid()
 	{
 		for (int j = 0; j < HEXGRIDSIZE; j++)
 		{
-
-			cout << "i" <<i << endl;
-			cout << "j" << j << endl;
-
-			nCenterX = j * (hexWidth * 3/4);
-			if (j % 2 == 0)
+			if (flatgrid)
 			{
-				nCenterY = i * hexHight ;
+
+				//	cout << "i" << i << endl;
+				//	cout << "j" << j << endl;
+			
+				nCenterX = j * (hexWidth * 3 / 4);
+				if (j % 2 == 0)
+				{
+					nCenterY = i * hexHight;
+				}
+				else
+				{
+					nCenterY = i * hexHight + hexHight / 2;
+				}
+
+				m_HexGridLayout[i][j] = new CHexgridCell(nCenterX, nCenterY, sideSize);
+				//	m_HexGridLayout[i][j] = new CHexgridCell(nCenterY, nCenterX, sideSize);
 			}
 			else
 			{
-				nCenterY = i * hexHight + hexHight / 2;
+
+				//	cout << "i" << i << endl;
+				//	cout << "j" << j << endl;
+			
+				
+				nCenterY = i * (hexWidth * 3 / 4);
+				if (i % 2 == 0)
+				{
+					nCenterX = j * (hexHight);
+				}
+				else
+				{
+					nCenterX = j * (hexHight) + (hexHight/2);
+				}
+
+				m_HexGridLayout[i][j] = new CHexgridCell(nCenterX, nCenterY, sideSize);
+				//	m_HexGridLayout[i][j] = new CHexgridCell(nCenterY, nCenterX, sideSize);
 			}
 
-			m_HexGridLayout[i][j] = new CHexgridCell(nCenterX,nCenterY,sideSize);
-//	m_HexGridLayout[i][j] = new CHexgridCell(nCenterY, nCenterX, sideSize);
+				for (int k = 0; k < 6; k++)
+				{
+					m_verticesRaw[vertexIT++] = m_HexGridLayout[i][j]->m_vertex[k].getX();
 
+					m_verticesRaw[vertexIT++] = m_HexGridLayout[i][j]->m_vertex[k].getY();
 
-			for (int k = 0; k < 6; k++)
-			{
-				m_verticesRaw[vertexIT++] = m_HexGridLayout[i][j]->m_vertex[k].getX();
-				
-				m_verticesRaw[vertexIT++] = m_HexGridLayout[i][j]->m_vertex[k].getY();
-				
-				m_verticesRaw[vertexIT++] = m_HexGridLayout[i][j]->m_vertex[k].getZ();
-				
-			}
+					m_verticesRaw[vertexIT++] = m_HexGridLayout[i][j]->m_vertex[k].getZ();
 
-			for (int l = 0; l < 12; l++)
-			{
-				m_vertexIndices[vertexIndexIT++] = (i * HEXGRIDSIZE * 6 + j * 6 + singleHexIndices[l]);
-			}
+				}
+
+				for (int l = 0; l < 12; l++)
+				{
+					m_vertexIndices[vertexIndexIT++] = (i * HEXGRIDSIZE * 6 + j * 6 + singleHexIndices[l]);
+				}
+			
 		}
 	}
 }
