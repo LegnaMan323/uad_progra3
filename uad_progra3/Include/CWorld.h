@@ -1,5 +1,6 @@
 #pragma once
 #include "CHexGrid.h"
+#include "CQuadTree.h"
 
 class CWorld
 {
