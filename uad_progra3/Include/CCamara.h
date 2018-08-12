@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "CVector3.h"
 
 class CCamara
@@ -19,3 +20,4 @@ public:
 	void reset();
 	CVector3 getPosition();
 };
+
