@@ -10,7 +10,7 @@
 #include "Globals.h"
 #include "CHexgridCell.h"
 #include <string>
-#define HEXGRIDSIZE 8
+#define HEXGRIDSIZE 4
 using namespace std;
 
 
@@ -46,7 +46,7 @@ private:
 public:
 
 
-	bool flatgrid = false;
+	bool flatgrid = true;
 
 
 	CHexGrid();

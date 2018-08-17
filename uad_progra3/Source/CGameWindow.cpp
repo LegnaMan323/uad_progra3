@@ -31,6 +31,8 @@ bool CGameWindow::requestArrowUp            = false;
 bool CGameWindow::requestArrowDown          = false;
 bool CGameWindow::requestArrowLeft          = false;
 bool CGameWindow::requestArrowRight         = false;
+bool CGameWindow::requestMouseMove          = false;
+
 int  CGameWindow::keyMods                   = 0;
 
 int  CGameWindow::newWidth                  = 0;
@@ -475,6 +477,7 @@ void CGameWindow::cursorPositionCallback(GLFWwindow* window, double xpos, double
 {
 	stCursorPosX = xpos;
 	stCursorPosY = ypos;
+
 }
 
 /*
@@ -614,6 +617,11 @@ void CGameWindow::processInput(void *appPointer)
 			{
 				((CApp *)appPointer)->onArrowRight(CGameWindow::keyMods);
 			}
+			/*if (CGameWindow::requestMouseMove)
+			{
+				((CApp *)appPointer)->onMouseMove(m_CursorPosX,m_CursorPosY);
+				requestMouseMove = false;
+			}*/
 		}
 	}
 }

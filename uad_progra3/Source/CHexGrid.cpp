@@ -37,11 +37,11 @@ void CHexGrid::reset()
 
 void CHexGrid::createHexGrid()
 {
-
+	int ncellID = 0;
 	int vertexIT = 0;
 	int vertexIndexIT = 0;
 	m_verticesRaw = new float[HEXGRIDSIZE * HEXGRIDSIZE * 3 * 6];
-	m_HexGridLayout[0][0] = new CHexgridCell(0, 0, sideSize);
+	m_HexGridLayout[0][0] /*received by QTN*/ = new CHexgridCell(0, 0, sideSize, ncellID); 
 	int singleHexIndices[] = { 0,1,2,2,0,3,3,4,5,5,3,0};
 	
 	
@@ -54,11 +54,14 @@ void CHexGrid::createHexGrid()
 	{
 		for (int j = 0; j < HEXGRIDSIZE; j++)
 		{
+
+			ncellID++;
+
 			if (flatgrid)
 			{
 
-				//	cout << "i" << i << endl;
-				//	cout << "j" << j << endl;
+			//		cout << "i" << i << endl;
+			//	cout << "j" << j << endl;
 			
 				nCenterX = j * (hexWidth * 3 / 4);
 				if (j % 2 == 0)
@@ -70,7 +73,7 @@ void CHexGrid::createHexGrid()
 					nCenterY = i * hexHight + hexHight / 2;
 				}
 
-				m_HexGridLayout[i][j] = new CHexgridCell(nCenterX, nCenterY, sideSize);
+				m_HexGridLayout[i][j] = new CHexgridCell(nCenterX, nCenterY, sideSize, ncellID);
 				//	m_HexGridLayout[i][j] = new CHexgridCell(nCenterY, nCenterX, sideSize);
 			}
 			else
@@ -90,7 +93,7 @@ void CHexGrid::createHexGrid()
 					nCenterX = j * (hexHight) + (hexHight/2);
 				}
 
-				m_HexGridLayout[i][j] = new CHexgridCell(nCenterX, nCenterY, sideSize);
+				m_HexGridLayout[i][j] = new CHexgridCell(nCenterX, nCenterY, sideSize, ncellID);
 				//	m_HexGridLayout[i][j] = new CHexgridCell(nCenterY, nCenterX, sideSize);
 			}
 

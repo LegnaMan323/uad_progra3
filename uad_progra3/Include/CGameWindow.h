@@ -53,6 +53,9 @@ private:
 	static bool requestArrowLeft;          // Arrow left
 	static bool requestArrowRight;         // Arrow right
 
+	static bool requestMouseMove;
+
+
 	static int  keyMods;                   // Key modifiers, they match the GLFW key modifiers (alt, ctrl, shift)
 
 	static int  newWidth;

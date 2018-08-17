@@ -1,7 +1,7 @@
 #include "..\Include\CHexgridCell.h"
 
 
-CHexgridCell::CHexgridCell(float x, float z, const float sSize) //: graphicMemoryObjectID(nullptr)
+CHexgridCell::CHexgridCell(float x, float z, const float sSize, int cellID) //: graphicMemoryObjectID(nullptr)
 {
 	
 	m_center.setValues(x,0,z);
@@ -12,13 +12,13 @@ CHexgridCell::CHexgridCell(float x, float z, const float sSize) //: graphicMemor
 		for (int i = 0; i < 6; i++) //angles are 0°, 60°, 120°, 180°, 240°, 300° and/or 360°
 		{
 			m_vertex[i].setValues(m_center.X + sSize * cos(angrad*(60 * i)), 0, m_center.Z + sSize * sin(angrad*(60 * i)));
-			//cout << "X:" << m_vertex[i].X << "   Y:"  << m_vertex[i].Z << endl;
-			//cout << i << endl;
+		//	cout << "X:" << m_vertex[i].X << "   Y:"  << m_vertex[i].Z << endl;
+		//	cout << i << cellID << endl;
 		}
 	}
 	else
 	{
-		for (int i = 0; i < 6; i++) //angles are 0°, 60°, 120°, 180°, 240°, 300° and/or 360°
+		for (int i = 0; i < 6; i++) 
 		{
 			m_vertex[i].setValues(m_center.X + sSize * cos(angrad*(60 * (i - thirtyGrad))), 0, m_center.Z + sSize * sin(angrad*(60 * (i - thirtyGrad))));
 			//cout << "X:" << m_vertex[i].X << "   Y:"  << m_vertex[i].Z << endl;

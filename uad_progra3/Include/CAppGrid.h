@@ -9,13 +9,22 @@
 #include "CApp.h"
 #include "CVector3.h"
 
+#define DEFAULT_CAMERA_MOVE_SPEED 0.015f
+
 // Class that inherits from Base class CApp
 // Base class CApp has members for: CGameWindow, CGameMenu, and COpenGLRenderer, which we can access through the public/protected methods
 class CAppGrid : public CApp
 {
 private:
 
-	CWorld * m_World;
+	CWorld *m_World;
+
+	double m_currentDeltaTime;
+
+	CVector3 m_CamPosition;
+
+	void moveCamera(float direction);
+
 
 protected:
 	// Method to initialize the menu
@@ -50,6 +59,8 @@ public:
 	// -------------------------------------
 
 	void onMouseMove(float deltaX, float deltaY);
+
+	void onF3(int mods);
 
 };
 

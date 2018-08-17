@@ -1,34 +1,26 @@
 #pragma once
 
-#ifndef CQUADTREE
-#define CQUADTREE
-
-
-#include "../Include/CVector3.h"
-#include <iostream>
-using namespace std;
-
-
-
+#include "CQuadTreeNode.h"
+#include "CHexGrid.h"
 
 class CQuadTree
 {
 private:
+	CQuadTreeNode * m_QRoot;
+	CHexgridCell * m_HQgrid;
+	CVector3 *rQEdges;
 
-
-	int subDivideLimit;
-
-
+	int subLimit;
 
 public:
-
+	
 	CQuadTree();
+
 	~CQuadTree();
 
-	void BuildQuadTree();
-	void Render();
+	void BuildQuadTree(CHexgridCell *HexGrid);
+
+	void QTRender();
 
 
 };
-
-#endif //!CQUADTREE

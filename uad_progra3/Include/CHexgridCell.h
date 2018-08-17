@@ -22,13 +22,13 @@ private:
 
 public:
 	CVector3 m_center;
-	bool flathex = false;
+	bool flathex = true;
 	CVector3 m_vertex[6];
 	const float sideSize = 1;
 	const float angrad = GRAD_RAD;
 	const float thirtyGrad = THIRTY_GRAD_RAD;
 
-	CHexgridCell(float x, float y, float sSize);
+	CHexgridCell(float x, float y, float sSize, int cellID);
 	CHexgridCell * HexCell;
 	~CHexgridCell();
 	CVector3 getCenter();
